@@ -1,0 +1,27 @@
+Command Participants
+
+Command declared an interface for executing operations.
+
+Bark, Meow, and Moo are Concrete Commands that define a binding between
+ToyGUI and the action of making their respective animal noise. Implements
+execute to let ToyGUI know what image and sound are selected as well as
+tell ToyGUI to speak once it has the proper data.
+
+Toy serves as the Application, defining all Concrete Commands and binding 
+them to their respective AnimalButton. Sends user requests to 
+Invoker(AnimalButton) or Menu(NameTextBox).
+
+TextBox is an Abstract Menu Class defining an interface for Concrete Menus.
+
+NameTextBox is a Concrete Menu that stores Invokers with names tied to them
+via HashMap. If the String entered by the user matches one of the keys in the
+HashMap it tells the Invoker associated with that String to execute.
+
+Button is an Abstract Invoker Class defining an interface for Concrete
+Invokers. 
+
+AnimalButton serves as an Invoker. It stores a command and executes it when
+the button is clicked.
+
+ToyGUI serves as the receiver. It knows how to perform the operations
+(setSound, setImage, and speak) associated with a request.

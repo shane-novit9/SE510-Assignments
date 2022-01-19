@@ -1,0 +1,25 @@
+Mediator Participants
+
+DialogDirector is the mediator that defines an interface for communicating
+with Widget objects.
+
+FontDialogDirector servers as the concrete mediator, it knows and maintains 
+its Widgets. When a widget is changed FontDialogDirector is notified and 
+makes subsequent changes to other Widgets if necessary.
+
+ListBox is a Widget that maintains a list of the available fonts as well as
+the selection of these fonts. When a new font is selected, 
+FontDialogDirector is notified and passes the selected font to EntryField.
+
+EntryField is a Widget that holds the font currently being used. When a new
+font is set, FontDialogDirector is notified and enables/ disables buttons
+associated with that particular font.
+
+RadioButtonList is a Widget that stores Buttons representing variations of a
+particular font. When a new font is selected, FontDialogDirector tells 
+RadioButtonList to enable/disable variations based off what font is selected.
+
+Cancel is a button Widget that is always enabled.
+
+OK is a button Widget that is enables when a font is selected and disabled
+otherwise.

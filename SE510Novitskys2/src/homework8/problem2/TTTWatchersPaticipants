@@ -1,0 +1,47 @@
+TTTWatchers Participants
+
+Subject:
+	- Maintains an array list of observers that observe itself.
+	- Defines methods for attaching / detaching observer objects.
+	- Defined abstract methods: getBoard(), placeStone(), setWinner(),
+	  and getWinner() used within its child class (TTTGame).
+	- Defines method notifyObs() used by TTTGame to notify all observers
+	  of changes to the game's state and tells those observers to update.
+	  
+TTTGame:
+	- Stores the state of the game to TTTStateObserver and TTTStatObserver.
+	- Calls subject's notifyObs method passing itself to notify observers when
+	  a change has been made to either the game's state (placeStone) or the game's 
+	  winner (setWinner).
+	  
+Observer:
+	- Defines an updating interface for objects that should be notified of 
+	  changed in a subject.
+	- Defines a display interface for objects to format the subject's updated
+	  state for output.
+	  
+TTTStateObserver:
+	- Stores the state of the board that should stay consistent with TTTGame's state.
+	- Implements the Observer's update interface to keep its state consistent with the 
+	  subject's.
+	- Implements the Observer's display interface to print the state of the game upon 
+	  updating.
+	  
+TTTStatObserver:
+	- Stores the state of the board that should stay consistent with TTTGame's state.
+	- Implements the Observer's update interface to keep its state consistent with the
+	  subject's.
+	- Implements the Observer's display interface. In this case, display prints: the
+	  number of occurrences of X's, O's, and -'s on the board, and the current winner
+	  of the game.
+	  
+TTTDriver:
+	- Serves as the game client allowing two users to play Tic-Tac-Toe.
+	- Initializes concrete subject (TTTGame) as well as a StateObserver and attaches
+	  the observer to Subject's array list of observers.
+	- After both player take a turn, attach a StatObserver.
+	- After both players take 4 turns, detach the StateObserver and set the winner to X
+	  which updates StatObserver, printing the final statistics of the game.
+	  
+	    
+	

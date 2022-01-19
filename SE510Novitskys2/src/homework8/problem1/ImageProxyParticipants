@@ -1,0 +1,17 @@
+ImageProxy Participants
+
+ImageProxy:
+	- Maintains a reference to real graphic Image.
+	- Provides an interface identical to Graphic's so that an ImageProxy
+	  can be substituted for Image.
+	- Controls Tester's access to Image by only cloning an Image when 
+	  changeColor() is called (Copy-on-Write).
+	
+Graphics:
+	- Defines a common interface for Image and ImageProxy so that an
+	  ImageProxy can be used anywhere an Image is expected.
+	  
+Image:
+	- Defines the real object that ImageProxy represents.
+	- Returns a deep clone of itself in order to separate it from
+	  other images referencing the same location in memory.

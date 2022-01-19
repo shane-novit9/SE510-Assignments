@@ -1,0 +1,12 @@
+Prototype Participants
+
+Body.java, Engine.java, and Wheel.java are prototypes that define the clone operation.
+
+FordBody.java, GMBody.java, FordEngine.java, GMEngine.java, FordWheel.java, and GMWheel.java
+are all concrete objects implementing prototypes. They can return clones of themselves.
+
+CarShowroom.java is a client that can obtain more bodies, engines, or wheels by asking them to
+clone themselves respectively.
+
+CarShowroom.java is a collaboration because it asks the body, engine, and wheel prototypes to 
+clone themselves for a concrete implementation of that prototype.

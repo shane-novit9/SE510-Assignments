@@ -1,0 +1,13 @@
+CustomerDaoMySQL is an attribute of CustomerManager, so if you wanted to change the 
+database type you are using you would have to add/modify the code of CustomerManager which violates the
+Open-Closed principle. To fix this I made a CustomerDao abstract class that can be passed to CustomerManager 
+in the form of a DAO for the database you're using.
+
+Before the addition of the CustomerDao class there were no subclasses throughout the program. After modification
+individual CustomerDaos i.e. MongoDbDao, MySQLDao, etc. are subclasses of CustomerDao. Each of these subclasses 
+shared all of the methods and attributes of their parent so they are substitutable for their parent meaning it 
+satisfies Liskov substitution principle. 
+
+Customer manager is only reliant on CustomerDao. CustomerDao relies on Customer and each implementation of
+CustomerDao is reliant on CustomerDao. The assembler defines a CustomerDao for a specific database, injects that 
+into an instance of CustomerManager, and begins CustomerManager. This satisfies Dependency Inversion Principle.

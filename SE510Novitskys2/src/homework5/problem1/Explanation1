@@ -1,0 +1,8 @@
+Shane Novitsky
+Explanation1
+
+The main issue I found with the BlogSite program was that the service interface was responsible for the creation, deletion, and updating of 
+accounts, blogs, and comments meaning the interface was in violation of the single responsibility principle. To resolve this issue, I implemented
+the interface segregation principle. I created individual services for accounts, blogs, and comment along with individual implementations of those 
+services. I then created the BlogSite class to serve as a sort of driver declaring the three types of services, assigning instantiations of services' 
+respective implementation to those services, and finally call method1 within each controller to test each service.

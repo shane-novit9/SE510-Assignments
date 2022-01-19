@@ -1,0 +1,23 @@
+Abstract Factory Participants
+
+Body.java, Engine.java, and Wheel.java all serve as interfaces for the families of objects
+produced in the abstract factory.
+
+FordBody.java, FordEngine.java, and FordWheel.java represent the Ford family of concrete 
+product implementations.
+GMBody.java, GMEngine.java, and GMWheel.java represent the GM family of concrete 
+product implementations.
+
+PartsFactory.java defines the interface for the factory that returns car parts.
+
+FordPartFactory.java is a concrete factory that produces parts of the Ford family.
+GMPartFactory.java is a concrete factory that produces parts of the GM family.
+
+CarShowroom.java is the client that only depends on the body, engine, wheel, and partsFactory 
+interfaces.
+
+CarTypeSelector.java serves as the driver, creating a concrete parts factory and passing it to
+CarShowroom via injection. 
+
+CarShowroom.java asks a subclass of PartsFactory.java to create a concrete body, engine, or 
+wheel.

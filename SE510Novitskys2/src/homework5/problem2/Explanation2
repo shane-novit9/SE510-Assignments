@@ -1,0 +1,9 @@
+Shane Novitsky
+Explanation2
+
+To make toaster independent of any implementation of toast I first created the ToastFactory interface that defines the createToast method. Then, in
+Toaster.java I declared a private ToastFactory and a constructor with ToastFactory being the type of the formal parameter. In the collectToast
+method within Toaster I replaced "Toast toast = new BasicToast();" with "Toast toast = ToastFactory.createToast();" making toaster independent of any
+toast implementation. Finally, in the Driver class I declared a ToastFactory and, depending on what body of the if else statement is executed, assign 
+the proper implementation of ToastFactory to it. Followed by assigning toaster an instance of toaster with tf (ToastFactory) being passed to the 
+constructor.

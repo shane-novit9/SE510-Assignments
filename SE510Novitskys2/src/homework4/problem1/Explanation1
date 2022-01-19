@@ -1,0 +1,11 @@
+Prior to the modifications I made to FancyBlogBrowser(FBB) it was reliant on not only the blog and blogSource classes,
+but also each subclass of blogSource(MySQLBS, CsvBS). This meant that when adding a PostgreSQLBlogSource a programmer would need to
+modify code within FBB to account for the expansion(Violation of OCP). Also, a new driver was made for each type of blogSource which 
+is redundant.
+
+To make it so that any number of blog sources can be added to the program without having to make any changes in FBB I turned blogSource 
+into an abstract interface. This way FBB need only have a blogSource attribute rather than having to discern what type of database its 
+accessing. Individual blog sources, i.e. MySQLBS, PgSQLBS, etc, are implementations of blogSource that override blog source's methods. 
+
+In FBBDriver, a blogSource attribute is defined with individual blog sources being passed to it. Dependency injection via setter in the 
+form of the setBlogSource(BlogSource) method allows the driver to change databases at runtime.
